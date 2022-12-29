@@ -7,7 +7,7 @@ public class Email {
     private String department ;
     private String email;
     private int defaultPasswordLength = 10;
-    private int mailBoxCapacity;
+    private int mailBoxCapacity = 500;
     private String alternateEmail;
     private String CompanySuffix = "nsdcompany.com";
 
@@ -15,12 +15,9 @@ public class Email {
     public Email ( String firstName , String lastName ){
         this.firstName = firstName;
         this.lastName = lastName;
-       
-        System.out.println("Email Created : " + this.firstName + " "+ this.lastName);
 
         // Call a method asking for the Department - return the Department
         this.department = setDepartment();
-        System.out.println("Department is : " + this.department );
 
         // Call a methods which return the random password
         this.password = randomPassword(defaultPasswordLength);
@@ -28,12 +25,11 @@ public class Email {
 
         // Combine elements to generate Emails 
         email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + CompanySuffix;
-        System.out.println("Your Email is : " + email );
     }
 
     // Ask for the Department
     private String setDepartment(){
-        System.out.print("DEPARTMENT CODES\n1 for Sales \n2 for Development \n3 for Accounting \n0 for None \nEnter Department CODE : ");
+        System.out.print("New Worker : " + firstName + "." + " DEPARTMENT CODES\n1 for Sales \n2 for Development \n3 for Accounting \n0 for None \nEnter Department CODE : ");
         
         Scanner sc = new Scanner(System.in);
 
@@ -79,5 +75,10 @@ public class Email {
     public String getAlternateEmail(){ return alternateEmail; }
     public int getPassword(){ return mailBoxCapacity; }
 
+    public String showInfo(){
+        return "DISPLAY NAME : " + firstName + " " + lastName +
+            "\nCOMPANY NAME : " + email + 
+            "\nMAILBOX CAPACITY : " + mailBoxCapacity + " mb";
+    }
 
 }
