@@ -75,5 +75,9 @@ public class Email {
         this.password = password;
     }
 
+    public int getMailboxCapacity(){ return mailBoxCapacity; }
+    public String getAlternateEmail(){ return alternateEmail; }
+    public int getPassword(){ return mailBoxCapacity; }
+
 
 }
